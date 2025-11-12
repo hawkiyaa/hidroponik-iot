@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoring Sensor Hidroponik</title>
+</head>
+<body>
+    <h2>Data Sensor Hidroponik</h2>
+    <div id="output"></div>
+
+    <script>
+    // Ambil JSON dari backend
+    fetch('get_data.php')
+        .then(response => response.json())
+        .then(data => {
+            let html = `<p><strong>Suhu Maksimum:</strong> ${data.suhumax} °C</p>`;
+            html += `<p><strong>Suhu Minimum:</strong> ${data.suhumin} °C</p>`;
+            html += `<p><strong>Suhu Rata-rata:</strong> ${data.suhurata} °C</p>`;
+            html += `<h3>Data Suhu Maksimum & Humid</h3><ul>`;
+            data.nilai_suhu_max_humid_max.forEach(item => {
+                html += `<li>Id: ${item.idx}, Suhu: ${item.suhun}, Humid: ${item.humid}, Kecerahan: ${item.kecerahan}, Waktu: ${item.timestamp}</li>`;
+            });
+            html += `</ul><h3>Month-Year Terdata</h3><ul>`;
+            data.month_year_max.forEach(item => {
+                html += `<li>${item.month_year}</li>`;
+            });
+            html += `</ul>`;
+            document.getElementById('output').innerHTML = html;
+        })
+        .catch(error => console.error('Gagal parsing JSON:', error));
+    </script>
+</body>
+</html>
