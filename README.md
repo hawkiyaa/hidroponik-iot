@@ -19,4 +19,4 @@ Proyek ini merupakan tugas UTS Pemrograman IoT, yang menampilkan sistem hidropon
 5. Aplikasi (web/mobile/desktop) menampilkan data real-time
 
 ### 🔗 Link:
-- **Wokwi ESP32 Project:** [https://wokwi.com/projects/447393299418976257](#
+- **Wokwi ESP32 Project:** [https://wokwi.com/projects/447393299418976257]
